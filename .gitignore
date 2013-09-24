@@ -11,3 +11,12 @@ project/plugins/project/
 
 # Scala-IDE specific
 .scala_dependencies
+
+# eclipse
+.metadata/*
+*/.cache
+*/.project
+*/.classpath
+*/.settings/*
+*/.worksheet/*
+*/bin/*
