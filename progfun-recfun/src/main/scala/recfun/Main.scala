@@ -28,15 +28,13 @@ object Main {
     def count(accu: Int, chars: List[Char]): Int = {
       if (chars.isEmpty || accu < 0) accu
       else {
-        var head = chars.head
-        var tails = chars.tail
-        if (head == '(') count(accu + 1, tails)
-        else if (head == ')') count(accu - 1, tails)
-        else count(accu, tails)
+        if (chars.head == '(') count(accu + 1, chars.tail)
+        else if (chars.head == ')') count(accu - 1, chars.tail)
+        else count(accu, chars.tail)
       }
     }
     
-    if (count(0, chars) == 0) true else false
+    count(0, chars) == 0 
   }
 
   /**
