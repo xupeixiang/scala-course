@@ -1,5 +1,6 @@
 *.class
 *.log
+*/project/*
 
 # sbt specific
 dist/*
@@ -20,3 +21,4 @@ project/plugins/project/
 */.settings/*
 */.worksheet/*
 */bin/*
+
