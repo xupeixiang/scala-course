@@ -1,20 +1,20 @@
-package week3
+package week2
 
 object rationals {
   println("Welcome to the Scala worksheet")       //> Welcome to the Scala worksheet
-	val x = new Rational(1, 3)                //> x  : week3.Rational = 1/3
+	val x = new Rational(1, 3)                //> x  : week2.Rational = 1/3
 	
-	val y = new Rational(5, 7)                //> y  : week3.Rational = 5/7
-	x.+(y)                                    //> res0: week3.Rational = 22/21
-	-y                                        //> res1: week3.Rational = 5/-7
+	val y = new Rational(5, 7)                //> y  : week2.Rational = 5/7
+	x.+(y)                                    //> res0: week2.Rational = 22/21
+	-y                                        //> res1: week2.Rational = 5/-7
 	
-	val z = new Rational(3, 2)                //> z  : week3.Rational = 3/2
-	x - y - z                                 //> res2: week3.Rational = -79/42
-	x + x                                     //> res3: week3.Rational = 2/3
+	val z = new Rational(3, 2)                //> z  : week2.Rational = 3/2
+	x - y - z                                 //> res2: week2.Rational = -79/42
+	x + x                                     //> res3: week2.Rational = 2/3
 	x.less(y)                                 //> res4: Boolean = true
-	x max y                                   //> res5: week3.Rational = 5/7
+	x max y                                   //> res5: week2.Rational = 5/7
 	
-	new Rational(2)                           //> res6: week3.Rational = 2/1
+	new Rational(2)                           //> res6: week2.Rational = 2/1
 }
 
 class Rational(x:Int, y: Int){
