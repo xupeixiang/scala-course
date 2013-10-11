@@ -135,10 +135,12 @@ class Empty extends TweetSet {
 }
 
 class NonEmpty(elem: Tweet, left: TweetSet, right: TweetSet) extends TweetSet {
-
+  
+  // pre-order, linear time
   def filterAcc(p: Tweet => Boolean, acc: TweetSet): TweetSet = 
     if(p(elem)) right.filterAcc(p, left.filterAcc(p, acc).incl(elem)) else right.filterAcc(p, left.filterAcc(p, acc))
-
+  
+  // like above
   def union(that: TweetSet): TweetSet = (left union (right union that)) incl elem
   
   def mostRetweeted: Tweet = 
