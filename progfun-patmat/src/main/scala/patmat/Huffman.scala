@@ -83,7 +83,7 @@ object Huffman {
   }
 
   def insert[U <: CodeTree](x: U, xs: List[U]): List[U] = xs match{
-    case List() => List()
+    case List() => List(x)
     case y :: ys  => if (weight(x) < weight(y)) x::xs else y::x::ys 
   }
   /**
@@ -208,7 +208,7 @@ object Huffman {
     case List() => List()
     case t :: ts => sub_tree match {
       case Leaf(c, w) => encode_sub(tree, tree)(ts)
-      case Fork(l, r, c, w) => if(chars(l).exists(_== t)) 0::encode_sub(tree, l)(ts) else 1::encode_sub(tree, r)(ts) 
+      case Fork(l, r, c, w) => if(chars(l).exists(_== t)) 0::encode_sub(tree, l)(text) else 1::encode_sub(tree, r)(text) 
     }
   }
 
