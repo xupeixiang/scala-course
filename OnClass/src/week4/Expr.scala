@@ -9,9 +9,14 @@ trait Expr {
   def numValue: Int
   def leftOp: Expr
   def rightOp: Expr
+  
+  def show(e: Expr): String = e match {
+    case Number(n) => n.toString
+    case Sum(e1, e2) => show(e1) + '+' + show(e2)
+  }
 }
 
-class Number(n: Int) extends Expr{
+case class Number(n: Int) extends Expr{
   def isNumber: Boolean = true
   def isSum: Boolean = false
   def isVar: Boolean = false
@@ -22,7 +27,7 @@ class Number(n: Int) extends Expr{
   def rightOp: Expr = throw new Error("NUmber.rightop")
 }
 
-class Sum(e1: Expr,e2: Expr) extends Expr{
+case class Sum(e1: Expr,e2: Expr) extends Expr{
   def isNumber: Boolean = false
   def isSum: Boolean = true
   def isVar: Boolean = false
