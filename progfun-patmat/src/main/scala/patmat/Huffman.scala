@@ -119,7 +119,7 @@ object Huffman {
   def combine(trees: List[CodeTree]): List[CodeTree] = trees match {
     case List() => List()
     case x::List() => List(x)
-    case x::y::xs => insert(new Fork(x, y, chars(x):::chars(y), weight(x) + weight(y)), combine(xs))
+    case x::y::xs => insert(new Fork(x, y, chars(x):::chars(y), weight(x) + weight(y)), xs)
   }
 
   /**
@@ -168,10 +168,9 @@ object Huffman {
   def decode_sub(tree: CodeTree, sub_tree: CodeTree, bits: List[Bit]): List[Char] = bits match {
     case List() => List()
     case b :: bs => {
-      var sub_tree_next : CodeTree = (if (b == 0) left(sub_tree) else right(sub_tree))
-      sub_tree_next match {
+      (if (b == 0) left(sub_tree) else right(sub_tree)) match {
         case Leaf(c, w) => c :: decode_sub(tree, tree, bs)
-        case Fork(l, r, chars, w) => decode_sub(tree, sub_tree_next, bs)
+        case Fork(l, r, chars, w) => decode_sub(tree, if (b == 0) left(sub_tree) else right(sub_tree), bs)
       } 
     }
   }
