@@ -84,7 +84,7 @@ object Huffman {
 
   def insert[U <: CodeTree](x: U, xs: List[U]): List[U] = xs match{
     case List() => List(x)
-    case y :: ys  => if (weight(x) < weight(y)) x::xs else y::x::ys 
+    case y :: ys  => if (weight(x) < weight(y)) x::xs else y::insert(x, ys)
   }
   /**
    * Returns a list of `Leaf` nodes for a given frequency table `freqs`.
