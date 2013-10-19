@@ -1,4 +1,5 @@
 package week5
+import math.Ordering
 
 object ListDemo {
 	def init[T](xs: List[T]): List[T] = xs match {
@@ -27,9 +28,9 @@ object ListDemo {
 	def removeAtWithUtils[T](xs: List[T], n: Int) = (xs take n) ::: (xs drop n + 1)
 	
 	//merge for merge sort
-	def merge[T](xs: List[T], ys: List[T])(lt : (T, T) => Boolean): List[T] = (xs, ys) match {
+	def merge[T](xs: List[T], ys: List[T])(order: Ordering[T]): List[T] = (xs, ys) match {
 	  case (Nil, n) => ys
 	  case (m, Nil) => xs
-	  case (m:: ms, n:: ns) => if (lt(m, n)) m :: merge(ms, ys)(lt) else n :: merge(xs, ns)(lt)
+	  case (m:: ms, n:: ns) => if (order.lt(m,n)) m :: merge(ms, ys)(order) else n :: merge(xs, ns)(order)
 	}
 }
