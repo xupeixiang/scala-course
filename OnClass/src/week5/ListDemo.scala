@@ -28,9 +28,9 @@ object ListDemo {
 	def removeAtWithUtils[T](xs: List[T], n: Int) = (xs take n) ::: (xs drop n + 1)
 	
 	//merge for merge sort
-	def merge[T](xs: List[T], ys: List[T])(order: Ordering[T]): List[T] = (xs, ys) match {
+	def merge[T](xs: List[T], ys: List[T])(implicit order: Ordering[T]): List[T] = (xs, ys) match {
 	  case (Nil, n) => ys
 	  case (m, Nil) => xs
-	  case (m:: ms, n:: ns) => if (order.lt(m,n)) m :: merge(ms, ys)(order) else n :: merge(xs, ns)(order)
+	  case (m:: ms, n:: ns) => if (order.lt(m,n)) m :: merge(ms, ys) else n :: merge(xs, ns)
 	}
 }
