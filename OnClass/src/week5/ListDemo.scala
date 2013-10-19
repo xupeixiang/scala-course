@@ -16,4 +16,13 @@ object ListDemo {
 	  case List() => List()
 	  case y :: ys => reverse(ys) ++ List(y)
 	}
+	
+	def removeAt[T](xs: List[T], n: Int): List[T] = xs match {
+	  case List() => xs
+	  case y :: ys => if(n < 0) xs 
+	  				  else if(n == 0) ys
+	  				  else y :: removeAt(ys, n-1)
+	}
+	
+	def removeAtWithUtils[T](xs: List[T], n: Int) = (xs take n) ::: (xs drop n + 1)
 }
