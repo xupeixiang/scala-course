@@ -11,4 +11,9 @@ object ListDemo {
 	  case List() => ys
 	  case z :: zs => z :: concat(zs, ys)
 	}
+	
+	def reverse[T](xs: List[T]): List[T] = xs match {
+	  case List() => List()
+	  case y :: ys => reverse(ys) ::: List(y)
+	}
 }
