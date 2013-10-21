@@ -33,4 +33,12 @@ object ListDemo {
 	  case (m, Nil) => xs
 	  case (m:: ms, n:: ns) => if (order.lt(m,n)) m :: merge(ms, ys) else n :: merge(xs, ns)
 	}
+	
+	def squareList(xs: List[Int]) : List[Int] = xs match {
+	  case Nil => Nil
+	  case y :: ys => y*y :: squareList(ys)
+	}
+	
+	def squareListWithMap(xs: List[Int]): List[Int] = 
+	  xs map (x => x*x)
 }
