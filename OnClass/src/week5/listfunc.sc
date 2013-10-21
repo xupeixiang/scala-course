@@ -19,5 +19,9 @@ object listfunc {
   	case x:: xs1 => (xs takeWhile (y => y == x)) :: pack(xs1 dropWhile (z => z == x))
   }                                               //> pack: [T](xs: List[T])List[List[T]]
   
+  def encode[T](xs: List[T]): List[(T, Int)] = pack(xs) map (x => (x head, x length))
+                                                  //> encode: [T](xs: List[T])List[(T, Int)]
+  	
   pack(packNums)                                  //> res6: List[List[Int]] = List(List(1, 1, 1), List(2), List(4, 4))
+  encode (packNums)                               //> res7: List[(Int, Int)] = List((1,3), (2,1), (4,2))
 }
