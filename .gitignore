@@ -16,7 +16,6 @@ project/plugins/project/
 .metadata/*
 */.cache
 */.project
-*/.classpath
 */.settings/*
 */.worksheet/*
 */bin/*
