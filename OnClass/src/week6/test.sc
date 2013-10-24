@@ -6,18 +6,15 @@ object demo {
   
   var s = "Hello World"                           //> s  : String = Hello World
   s filter (c => c.isUpper)                       //> res1: String = HW
-  
   s exists (_ isUpper)                            //> res2: Boolean = true
   s forall (_ isUpper)                            //> res3: Boolean = false
   
   var pairs = List(1, 2, 3) zip s                 //> pairs  : List[(Int, Char)] = List((1,H), (2,e), (3,l))
   pairs.unzip                                     //> res4: (List[Int], List[Char]) = (List(1, 2, 3),List(H, e, l))
-  
   s map (c => List('.', c))                       //> res5: scala.collection.immutable.IndexedSeq[List[Char]] = Vector(List(., H),
                                                   //|  List(., e), List(., l), List(., l), List(., o), List(.,  ), List(., W), Lis
                                                   //| t(., o), List(., r), List(., l), List(., d))
   s flatMap (c => List('.', c))                   //> res6: String = .H.e.l.l.o. .W.o.r.l.d
-  
   as.sum                                          //> res7: Int = 50
   
   var M = 3                                       //> M  : Int = 3
