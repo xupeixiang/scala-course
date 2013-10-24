@@ -5,6 +5,7 @@
 # sbt specific
 dist/*
 target/
+jars/
 src_managed/
 project/boot/
 project/plugins/project/
