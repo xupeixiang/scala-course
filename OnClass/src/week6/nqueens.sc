@@ -11,7 +11,7 @@ object nqueens {
   				if isSafe(col, queens)
   			} yield col :: queens
   	// case must if (x, y) of x_1 x_2
-  	def isSafe(col: Int, queens: List[Int]): Boolean = ((queens.length - 1 to 0 by -1) zip queens) forall { case (x, y) => y != col && math.abs(y - col) != (queens.length - x)}
+  	def isSafe(col: Int, queens: List[Int]): Boolean = ((queens.length - 1 to 0 by -1) zip queens) forall {case(x, y) => y != col && math.abs(y - col) != (queens.length - x)}
  		
   	placeQueens(n)
   }                                               //> queens: (n: Int)Set[List[Int]]
