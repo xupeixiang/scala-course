@@ -9,7 +9,7 @@ object stream {
   
   var a = 1 #:: Stream.empty                      //> a  : scala.collection.immutable.Stream[Int] = Stream(1, ?)
   
-  // call by name, lazy evaluate
+  // call by name, not lazy evaluation
   def cons[T](hd: T, tl: => Stream[T]) = new Stream[T] {
   	override def isEmpty = false
   	override def head = hd
